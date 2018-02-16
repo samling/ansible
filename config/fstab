@@ -1,0 +1,4 @@
+UUID=something          /home/pi/callisto       exfat   0       0
+UUID=something          /home/pi/europa         exfat   0       0
+UUID=something		    /home/pi/ganymede       ntfs    0       0
+user@whatbox_server:/home/user/files /home/pi/whatbox fuse.sshfs nonempty,_netdev,x-systemd.automount,user,idmap=user,IdentityFile=/home/pi/.ssh/id_rsa,allow_other,follow_symlinks,uid=1000,gid=1000,default_permissions 0 0
