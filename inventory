@@ -1,0 +1,2 @@
+[SAM-MBP]
+localhost ansible_connection=local

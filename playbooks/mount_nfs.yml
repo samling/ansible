@@ -1,0 +1,37 @@
+---
+- hosts: [SAM-MBP]
+  remote_user: sboynton
+  become: yes
+  tasks:
+      - name: Create directories
+        file:
+            path: /Volumes/{{ item }}
+            state: directory
+        with_items:
+            - Callisto
+            - Europa
+            - Ganymede
+
+      - name: Mount Callisto
+        mount:
+            path: /Volumes/Callisto
+            src: 192.168.88.55:/home/pi/callisto
+            fstype: nfs
+            opts: resvport,rw,intr,rsize=8192,wsize=8192,timeo=900,retrans=3,proto=tcp
+            state: mounted
+
+      - name: Mount Europa
+        mount:
+            path: /Volumes/Europa
+            src: 192.168.88.55:/home/pi/europa
+            fstype: nfs
+            opts: resvport,rw,intr,rsize=8192,wsize=8192,timeo=900,retrans=3,proto=tcp
+            state: mounted
+
+      - name: Mount Ganymede
+        mount:
+            path: /Volumes/Ganymede
+            src: 192.168.88.55:/home/pi/ganymede
+            fstype: nfs
+            opts: resvport,rw,intr,rsize=8192,wsize=8192,timeo=900,retrans=3,proto=tcp
+            state: mounted
